@@ -261,6 +261,9 @@ pub struct AllocatorCreateInfo {
     /// and just silently migrate some device memory" blocks to system RAM. This driver behavior can
     /// also be controlled using the `VK_AMD_memory_overallocation_behavior` extension.
     pub heap_size_limits: Option<Vec<ash::vk::DeviceSize>>,
+
+    /// Vulkan API version used to create the instance, device, and physical device with
+    pub vulkan_api_version: u32,
 }
 
 /// Construct `AllocatorCreateInfo` with default values
@@ -274,6 +277,7 @@ impl Default for AllocatorCreateInfo {
             preferred_large_heap_block_size: 0,
             frame_in_use_count: 0,
             heap_size_limits: None,
+            vulkan_api_version: ash::vk::make_version(1, 0, 0),
         }
     }
 }
@@ -750,7 +754,7 @@ pub struct DefragmentationStats {
 impl Allocator {
     /// Constructor a new `Allocator` using the provided options.
     pub fn new(create_info: &AllocatorCreateInfo) -> Result<Self> {
-        use ash::version::{DeviceV1_0, DeviceV1_1, InstanceV1_0};
+        use ash::version::{DeviceV1_0, DeviceV1_1, InstanceV1_0, InstanceV1_1};
         let instance = create_info.instance.clone();
         let device = create_info.device.clone();
         let routed_functions = unsafe {
@@ -839,11 +843,18 @@ impl Allocator {
                 >(Some(
                     device.fp_v1_1().get_image_memory_requirements2,
                 )),
+                vkGetPhysicalDeviceMemoryProperties2KHR: mem::transmute::<
+                    _,
+                    ffi::PFN_vkGetPhysicalDeviceMemoryProperties2KHR,
+                >(Some(
+                    instance.fp_v1_1().get_physical_device_memory_properties2,
+                )),
             }
         };
         let ffi_create_info = ffi::VmaAllocatorCreateInfo {
             physicalDevice: create_info.physical_device.as_raw() as ffi::VkPhysicalDevice,
             device: create_info.device.handle().as_raw() as ffi::VkDevice,
+            instance: create_info.instance.handle().as_raw() as ffi::VkInstance,
             flags: create_info.flags.bits(),
             frameInUseCount: create_info.frame_in_use_count,
             preferredLargeHeapBlockSize: create_info.preferred_large_heap_block_size as u64,
@@ -855,6 +866,7 @@ impl Allocator {
             pAllocationCallbacks: ::std::ptr::null(), // TODO: Add support
             pDeviceMemoryCallbacks: ::std::ptr::null(), // TODO: Add support
             pRecordSettings: ::std::ptr::null(),      // TODO: Add support
+            vulkanApiVersion: create_info.vulkan_api_version,
         };
         let mut internal: ffi::VmaAllocator = unsafe { mem::zeroed() };
         let result = ffi_to_result(unsafe {

@@ -5,6 +5,12 @@ pub type VkBool32 = u32;
 pub type VkDeviceSize = u64;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct VkInstance_T {
+    _unused: [u8; 0],
+}
+pub type VkInstance = *mut VkInstance_T;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct VkPhysicalDevice_T {
     _unused: [u8; 0],
 }
@@ -691,7 +697,7 @@ pub const VkStructureType_VK_STRUCTURE_TYPE_BEGIN_RANGE: VkStructureType = 0;
 pub const VkStructureType_VK_STRUCTURE_TYPE_END_RANGE: VkStructureType = 48;
 pub const VkStructureType_VK_STRUCTURE_TYPE_RANGE_SIZE: VkStructureType = 49;
 pub const VkStructureType_VK_STRUCTURE_TYPE_MAX_ENUM: VkStructureType = 2147483647;
-pub type VkStructureType = u32;
+pub type VkStructureType = i32;
 pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_COMMAND: VkSystemAllocationScope = 0;
 pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_OBJECT: VkSystemAllocationScope = 1;
 pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_CACHE: VkSystemAllocationScope = 2;
@@ -704,7 +710,7 @@ pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_RANGE_SIZE: VkSyste
     5;
 pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM: VkSystemAllocationScope =
     2147483647;
-pub type VkSystemAllocationScope = u32;
+pub type VkSystemAllocationScope = i32;
 pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE:
     VkInternalAllocationType = 0;
 pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_BEGIN_RANGE:
@@ -715,7 +721,7 @@ pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_RANGE_SIZE:
     VkInternalAllocationType = 1;
 pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM: VkInternalAllocationType =
     2147483647;
-pub type VkInternalAllocationType = u32;
+pub type VkInternalAllocationType = i32;
 pub const VkFormat_VK_FORMAT_UNDEFINED: VkFormat = 0;
 pub const VkFormat_VK_FORMAT_R4G4_UNORM_PACK8: VkFormat = 1;
 pub const VkFormat_VK_FORMAT_R4G4B4A4_UNORM_PACK16: VkFormat = 2;
@@ -981,7 +987,7 @@ pub const VkFormat_VK_FORMAT_BEGIN_RANGE: VkFormat = 0;
 pub const VkFormat_VK_FORMAT_END_RANGE: VkFormat = 184;
 pub const VkFormat_VK_FORMAT_RANGE_SIZE: VkFormat = 185;
 pub const VkFormat_VK_FORMAT_MAX_ENUM: VkFormat = 2147483647;
-pub type VkFormat = u32;
+pub type VkFormat = i32;
 pub const VkImageType_VK_IMAGE_TYPE_1D: VkImageType = 0;
 pub const VkImageType_VK_IMAGE_TYPE_2D: VkImageType = 1;
 pub const VkImageType_VK_IMAGE_TYPE_3D: VkImageType = 2;
@@ -989,7 +995,7 @@ pub const VkImageType_VK_IMAGE_TYPE_BEGIN_RANGE: VkImageType = 0;
 pub const VkImageType_VK_IMAGE_TYPE_END_RANGE: VkImageType = 2;
 pub const VkImageType_VK_IMAGE_TYPE_RANGE_SIZE: VkImageType = 3;
 pub const VkImageType_VK_IMAGE_TYPE_MAX_ENUM: VkImageType = 2147483647;
-pub type VkImageType = u32;
+pub type VkImageType = i32;
 pub const VkImageTiling_VK_IMAGE_TILING_OPTIMAL: VkImageTiling = 0;
 pub const VkImageTiling_VK_IMAGE_TILING_LINEAR: VkImageTiling = 1;
 pub const VkImageTiling_VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT: VkImageTiling = 1000158000;
@@ -997,7 +1003,7 @@ pub const VkImageTiling_VK_IMAGE_TILING_BEGIN_RANGE: VkImageTiling = 0;
 pub const VkImageTiling_VK_IMAGE_TILING_END_RANGE: VkImageTiling = 1;
 pub const VkImageTiling_VK_IMAGE_TILING_RANGE_SIZE: VkImageTiling = 2;
 pub const VkImageTiling_VK_IMAGE_TILING_MAX_ENUM: VkImageTiling = 2147483647;
-pub type VkImageTiling = u32;
+pub type VkImageTiling = i32;
 pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_OTHER: VkPhysicalDeviceType = 0;
 pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU: VkPhysicalDeviceType = 1;
 pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU: VkPhysicalDeviceType = 2;
@@ -1007,14 +1013,14 @@ pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_BEGIN_RANGE: VkPhysicalDe
 pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_END_RANGE: VkPhysicalDeviceType = 4;
 pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_RANGE_SIZE: VkPhysicalDeviceType = 5;
 pub const VkPhysicalDeviceType_VK_PHYSICAL_DEVICE_TYPE_MAX_ENUM: VkPhysicalDeviceType = 2147483647;
-pub type VkPhysicalDeviceType = u32;
+pub type VkPhysicalDeviceType = i32;
 pub const VkSharingMode_VK_SHARING_MODE_EXCLUSIVE: VkSharingMode = 0;
 pub const VkSharingMode_VK_SHARING_MODE_CONCURRENT: VkSharingMode = 1;
 pub const VkSharingMode_VK_SHARING_MODE_BEGIN_RANGE: VkSharingMode = 0;
 pub const VkSharingMode_VK_SHARING_MODE_END_RANGE: VkSharingMode = 1;
 pub const VkSharingMode_VK_SHARING_MODE_RANGE_SIZE: VkSharingMode = 2;
 pub const VkSharingMode_VK_SHARING_MODE_MAX_ENUM: VkSharingMode = 2147483647;
-pub type VkSharingMode = u32;
+pub type VkSharingMode = i32;
 pub const VkImageLayout_VK_IMAGE_LAYOUT_UNDEFINED: VkImageLayout = 0;
 pub const VkImageLayout_VK_IMAGE_LAYOUT_GENERAL: VkImageLayout = 1;
 pub const VkImageLayout_VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL: VkImageLayout = 2;
@@ -1039,7 +1045,7 @@ pub const VkImageLayout_VK_IMAGE_LAYOUT_BEGIN_RANGE: VkImageLayout = 0;
 pub const VkImageLayout_VK_IMAGE_LAYOUT_END_RANGE: VkImageLayout = 8;
 pub const VkImageLayout_VK_IMAGE_LAYOUT_RANGE_SIZE: VkImageLayout = 9;
 pub const VkImageLayout_VK_IMAGE_LAYOUT_MAX_ENUM: VkImageLayout = 2147483647;
-pub type VkImageLayout = u32;
+pub type VkImageLayout = i32;
 pub type VkImageUsageFlags = VkFlags;
 pub type VkImageCreateFlags = VkFlags;
 pub const VkSampleCountFlagBits_VK_SAMPLE_COUNT_1_BIT: VkSampleCountFlagBits = 1;
@@ -1051,7 +1057,7 @@ pub const VkSampleCountFlagBits_VK_SAMPLE_COUNT_32_BIT: VkSampleCountFlagBits = 
 pub const VkSampleCountFlagBits_VK_SAMPLE_COUNT_64_BIT: VkSampleCountFlagBits = 64;
 pub const VkSampleCountFlagBits_VK_SAMPLE_COUNT_FLAG_BITS_MAX_ENUM: VkSampleCountFlagBits =
     2147483647;
-pub type VkSampleCountFlagBits = u32;
+pub type VkSampleCountFlagBits = i32;
 pub type VkSampleCountFlags = VkFlags;
 pub type VkMemoryPropertyFlags = VkFlags;
 pub type VkMemoryHeapFlags = VkFlags;
@@ -1489,6 +1495,19 @@ pub struct VkMemoryRequirements2 {
     pub pNext: *mut ::std::os::raw::c_void,
     pub memoryRequirements: VkMemoryRequirements,
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VkPhysicalDeviceMemoryProperties2 {
+    pub sType: VkStructureType,
+    pub pNext: *mut ::std::os::raw::c_void,
+    pub memoryProperties: VkPhysicalDeviceMemoryProperties,
+}
+pub type PFN_vkGetPhysicalDeviceMemoryProperties2KHR = ::std::option::Option<
+    unsafe extern "C" fn(
+        physicalDevice: VkPhysicalDevice,
+        pMemoryProperties: *mut VkPhysicalDeviceMemoryProperties2,
+    ),
+>;
 pub type PFN_vkGetImageMemoryRequirements2KHR = ::std::option::Option<
     unsafe extern "C" fn(
         device: VkDevice,
@@ -1583,6 +1602,7 @@ pub struct VmaVulkanFunctions {
     pub vkGetImageMemoryRequirements2KHR: PFN_vkGetImageMemoryRequirements2KHR,
     pub vkBindBufferMemory2KHR: PFN_vkBindBufferMemory2KHR,
     pub vkBindImageMemory2KHR: PFN_vkBindImageMemory2KHR,
+    pub vkGetPhysicalDeviceMemoryProperties2KHR: PFN_vkGetPhysicalDeviceMemoryProperties2KHR,
 }
 pub type VmaRecordFlags = VkFlags;
 #[doc = " Parameters for recording calls to VMA functions. To be used in VmaAllocatorCreateInfo::pRecordSettings."]
@@ -1674,6 +1694,19 @@ pub struct VmaAllocatorCreateInfo {
     #[doc = "If support for recording is not enabled using `VMA_RECORDING_ENABLED` macro,"]
     #[doc = "creation of the allocator object fails with `VK_ERROR_FEATURE_NOT_PRESENT`."]
     pub pRecordSettings: *const VmaRecordSettings,
+    #[doc = " \\brief Optional handle to Vulkan instance object."]
+    #[doc = ""]
+    #[doc = "Optional, can be null. Must be set if #VMA_ALLOCATOR_CREATE_EXT_MEMORY_BUDGET_BIT flas is used"]
+    #[doc = "or if `vulkanApiVersion >= VK_MAKE_VERSION(1, 1, 0)`."]
+    pub instance: VkInstance,
+    #[doc = " \\brief Optional. The highest version of Vulkan that the application is designed to use."]
+    #[doc = ""]
+    #[doc = "It must be a value in the format as created by macro `VK_MAKE_VERSION` or a constant like: `VK_API_VERSION_1_1`, `VK_API_VERSION_1_0`."]
+    #[doc = "The patch version number specified is ignored. Only the major and minor versions are considered."]
+    #[doc = "It must be less or equal (preferably equal) to value as passed to `vkCreateInstance` as `VkApplicationInfo::apiVersion`."]
+    #[doc = "Only versions 1.0 and 1.1 are supported by the current implementation."]
+    #[doc = "Leaving it initialized to zero is equivalent to `VK_API_VERSION_1_0`."]
+    pub vulkanApiVersion: u32,
 }
 extern "C" {
     #[doc = " Creates Allocator object."]
@@ -1685,6 +1718,30 @@ extern "C" {
 extern "C" {
     #[doc = " Destroys allocator object."]
     pub fn vmaDestroyAllocator(allocator: VmaAllocator);
+}
+#[doc = " \\brief Information about existing #VmaAllocator object."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VmaAllocatorInfo {
+    #[doc = " \\brief Handle to Vulkan instance object."]
+    #[doc = ""]
+    #[doc = "This is the same value as has been passed through VmaAllocatorCreateInfo::instance."]
+    pub instance: VkInstance,
+    #[doc = " \\brief Handle to Vulkan physical device object."]
+    #[doc = ""]
+    #[doc = "This is the same value as has been passed through VmaAllocatorCreateInfo::physicalDevice."]
+    pub physicalDevice: VkPhysicalDevice,
+    #[doc = " \\brief Handle to Vulkan device object."]
+    #[doc = ""]
+    #[doc = "This is the same value as has been passed through VmaAllocatorCreateInfo::device."]
+    pub device: VkDevice,
+}
+extern "C" {
+    #[doc = " \\brief Returns information about existing #VmaAllocator object - handle to Vulkan device etc."]
+    #[doc = ""]
+    #[doc = "It might be useful if you want to keep just the #VmaAllocator handle and fetch other required handles to"]
+    #[doc = "`VkPhysicalDevice`, `VkDevice` etc. every time using this function."]
+    pub fn vmaGetAllocatorInfo(allocator: VmaAllocator, pAllocatorInfo: *mut VmaAllocatorInfo);
 }
 extern "C" {
     #[doc = "PhysicalDeviceProperties are fetched from physicalDevice by the allocator."]
@@ -1753,8 +1810,60 @@ pub struct VmaStats {
     pub total: VmaStatInfo,
 }
 extern "C" {
-    #[doc = " Retrieves statistics from current state of the Allocator."]
+    #[doc = " \\brief Retrieves statistics from current state of the Allocator."]
+    #[doc = ""]
+    #[doc = "This function is called \"calculate\" not \"get\" because it has to traverse all"]
+    #[doc = "internal data structures, so it may be quite slow. For faster but more brief statistics"]
+    #[doc = "suitable to be called every frame or every allocation, use vmaGetBudget()."]
+    #[doc = ""]
+    #[doc = "Note that when using allocator from multiple threads, returned information may immediately"]
+    #[doc = "become outdated."]
     pub fn vmaCalculateStats(allocator: VmaAllocator, pStats: *mut VmaStats);
+}
+#[doc = " \\brief Statistics of current memory usage and available budget, in bytes, for specific memory heap."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VmaBudget {
+    #[doc = " \\brief Sum size of all `VkDeviceMemory` blocks allocated from particular heap, in bytes."]
+    pub blockBytes: VkDeviceSize,
+    #[doc = " \\brief Sum size of all allocations created in particular heap, in bytes."]
+    #[doc = ""]
+    #[doc = "Usually less or equal than `blockBytes`."]
+    #[doc = "Difference `blockBytes - allocationBytes` is the amount of memory allocated but unused -"]
+    #[doc = "available for new allocations or wasted due to fragmentation."]
+    #[doc = ""]
+    #[doc = "It might be greater than `blockBytes` if there are some allocations in lost state, as they account"]
+    #[doc = "to this value as well."]
+    pub allocationBytes: VkDeviceSize,
+    #[doc = " \\brief Estimated current memory usage of the program, in bytes."]
+    #[doc = ""]
+    #[doc = "Fetched from system using `VK_EXT_memory_budget` extension if enabled."]
+    #[doc = ""]
+    #[doc = "It might be different than `blockBytes` (usually higher) due to additional implicit objects"]
+    #[doc = "also occupying the memory, like swapchain, pipelines, descriptor heaps, command buffers, or"]
+    #[doc = "`VkDeviceMemory` blocks allocated outside of this library, if any."]
+    pub usage: VkDeviceSize,
+    #[doc = " \\brief Estimated amount of memory available to the program, in bytes."]
+    #[doc = ""]
+    #[doc = "Fetched from system using `VK_EXT_memory_budget` extension if enabled."]
+    #[doc = ""]
+    #[doc = "It might be different (most probably smaller) than `VkMemoryHeap::size[heapIndex]` due to factors"]
+    #[doc = "external to the program, like other programs also consuming system resources."]
+    #[doc = "Difference `budget - usage` is the amount of additional memory that can probably"]
+    #[doc = "be allocated without problems. Exceeding the budget may result in various problems."]
+    pub budget: VkDeviceSize,
+}
+extern "C" {
+    #[doc = " \\brief Retrieves information about current memory budget for all memory heaps."]
+    #[doc = ""]
+    #[doc = "\\param[out] pBudget Must point to array with number of elements at least equal to number of memory heaps in physical device used."]
+    #[doc = ""]
+    #[doc = "This function is called \"get\" not \"calculate\" because it is very fast, suitable to be called"]
+    #[doc = "every frame or every allocation. For more detailed statistics use vmaCalculateStats()."]
+    #[doc = ""]
+    #[doc = "Note that when using allocator from multiple threads, returned information may immediately"]
+    #[doc = "become outdated."]
+    pub fn vmaGetBudget(allocator: VmaAllocator, pBudget: *mut VmaBudget);
 }
 extern "C" {
     #[doc = " Builds and returns statistics as string in JSON format."]
@@ -1816,13 +1925,24 @@ pub const VmaMemoryUsage_VMA_MEMORY_USAGE_CPU_TO_GPU: VmaMemoryUsage = 3;
 #[doc = "- Resources written by device, read by host - results of some computations, e.g. screen capture, average scene luminance for HDR tone mapping."]
 #[doc = "- Any resources read or accessed randomly on host, e.g. CPU-side copy of vertex buffer used as source of transfer, but also used for collision detection."]
 pub const VmaMemoryUsage_VMA_MEMORY_USAGE_GPU_TO_CPU: VmaMemoryUsage = 4;
-#[doc = " Memory mappable on host (guarantees to be `HOST_VISIBLE`) and cached."]
-#[doc = "It is roughly equivalent of `D3D12_HEAP_TYPE_READBACK`."]
+#[doc = " CPU memory - memory that is preferably not `DEVICE_LOCAL`, but also not guaranteed to be `HOST_VISIBLE`."]
 #[doc = ""]
-#[doc = "Usage:"]
+#[doc = "Usage: Staging copy of resources moved from GPU memory to CPU memory as part"]
+#[doc = "of custom paging/residency mechanism, to be moved back to GPU memory when needed."]
+pub const VmaMemoryUsage_VMA_MEMORY_USAGE_CPU_COPY: VmaMemoryUsage = 5;
+#[doc = " Lazily allocated GPU memory having `VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT`."]
+#[doc = "Exists mostly on mobile platforms. Using it on desktop PC or other GPUs with no such memory type present will fail the allocation."]
 #[doc = ""]
-#[doc = "- Resources written by device, read by host - results of some computations, e.g. screen capture, average scene luminance for HDR tone mapping."]
-#[doc = "- Any resources read or accessed randomly on host, e.g. CPU-side copy of vertex buffer used as source of transfer, but also used for collision detection."]
+#[doc = "Usage: Memory for transient attachment images (color attachments, depth attachments etc.), created with `VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT`."]
+#[doc = ""]
+#[doc = "Allocations with this usage are always created as dedicated - it implies #VMA_ALLOCATION_CREATE_DEDICATED_MEMORY_BIT."]
+pub const VmaMemoryUsage_VMA_MEMORY_USAGE_GPU_LAZILY_ALLOCATED: VmaMemoryUsage = 6;
+#[doc = " Lazily allocated GPU memory having `VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT`."]
+#[doc = "Exists mostly on mobile platforms. Using it on desktop PC or other GPUs with no such memory type present will fail the allocation."]
+#[doc = ""]
+#[doc = "Usage: Memory for transient attachment images (color attachments, depth attachments etc.), created with `VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT`."]
+#[doc = ""]
+#[doc = "Allocations with this usage are always created as dedicated - it implies #VMA_ALLOCATION_CREATE_DEDICATED_MEMORY_BIT."]
 pub const VmaMemoryUsage_VMA_MEMORY_USAGE_MAX_ENUM: VmaMemoryUsage = 2147483647;
 #[doc = " \\struct VmaPool"]
 #[doc = "\\brief Represents custom memory pool"]
@@ -1831,7 +1951,7 @@ pub const VmaMemoryUsage_VMA_MEMORY_USAGE_MAX_ENUM: VmaMemoryUsage = 2147483647;
 #[doc = "Call function vmaDestroyPool() to destroy it."]
 #[doc = ""]
 #[doc = "For more information see [Custom memory pools](@ref choosing_memory_type_custom_memory_pools)."]
-pub type VmaMemoryUsage = u32;
+pub type VmaMemoryUsage = i32;
 pub type VmaAllocationCreateFlags = VkFlags;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -2046,7 +2166,11 @@ extern "C" {
     pub fn vmaCheckPoolCorruption(allocator: VmaAllocator, pool: VmaPool) -> VkResult;
 }
 extern "C" {
-    #[doc = " TODO"]
+    #[doc = " \\brief Retrieves name of a custom pool."]
+    #[doc = ""]
+    #[doc = "After the call `ppName` is either null or points to an internally-owned null-terminated string"]
+    #[doc = "containing name of the pool that was previously set. The pointer becomes invalid when the pool is"]
+    #[doc = "destroyed or its name is changed using vmaSetPoolName()."]
     pub fn vmaGetPoolName(
         allocator: VmaAllocator,
         pool: VmaPool,
@@ -2054,6 +2178,10 @@ extern "C" {
     );
 }
 extern "C" {
+    #[doc = " \\brief Sets name of a custom pool."]
+    #[doc = ""]
+    #[doc = "`pName` can be either null or pointer to a null-terminated string with new name for the pool."]
+    #[doc = "Function makes internal copy of the string, so it can be changed or freed immediately after this call."]
     pub fn vmaSetPoolName(
         allocator: VmaAllocator,
         pool: VmaPool,
@@ -2197,6 +2325,7 @@ extern "C" {
 extern "C" {
     #[doc = " \\brief Deprecated."]
     #[doc = ""]
+    #[doc = "\\deprecated"]
     #[doc = "In version 2.2.0 it used to try to change allocation's size without moving or reallocating it."]
     #[doc = "In current version it returns `VK_SUCCESS` only if `newSize` equals current allocation's size."]
     #[doc = "Otherwise returns `VK_ERROR_OUT_OF_POOL_MEMORY`, indicating that allocation's size could not be changed."]
@@ -2309,6 +2438,10 @@ extern "C" {
     #[doc = "This function always fails when called for allocation that was created with"]
     #[doc = "#VMA_ALLOCATION_CREATE_CAN_BECOME_LOST_BIT flag. Such allocations cannot be"]
     #[doc = "mapped."]
+    #[doc = ""]
+    #[doc = "This function doesn't automatically flush or invalidate caches."]
+    #[doc = "If the allocation is made from a memory types that is not `HOST_COHERENT`,"]
+    #[doc = "you also need to use vmaInvalidateAllocation() / vmaFlushAllocation(), as required by Vulkan specification."]
     pub fn vmaMapMemory(
         allocator: VmaAllocator,
         allocation: VmaAllocation,
@@ -2319,12 +2452,18 @@ extern "C" {
     #[doc = " \\brief Unmaps memory represented by given allocation, mapped previously using vmaMapMemory()."]
     #[doc = ""]
     #[doc = "For details, see description of vmaMapMemory()."]
+    #[doc = ""]
+    #[doc = "This function doesn't automatically flush or invalidate caches."]
+    #[doc = "If the allocation is made from a memory types that is not `HOST_COHERENT`,"]
+    #[doc = "you also need to use vmaInvalidateAllocation() / vmaFlushAllocation(), as required by Vulkan specification."]
     pub fn vmaUnmapMemory(allocator: VmaAllocator, allocation: VmaAllocation);
 }
 extern "C" {
     #[doc = " \\brief Flushes memory of given allocation."]
     #[doc = ""]
     #[doc = "Calls `vkFlushMappedMemoryRanges()` for memory associated with given range of given allocation."]
+    #[doc = "It needs to be called after writing to a mapped memory for memory types that are not `HOST_COHERENT`."]
+    #[doc = "Unmap operation doesn't do that automatically."]
     #[doc = ""]
     #[doc = "- `offset` must be relative to the beginning of allocation."]
     #[doc = "- `size` can be `VK_WHOLE_SIZE`. It means all memory from `offset` the the end of given allocation."]
@@ -2348,6 +2487,8 @@ extern "C" {
     #[doc = " \\brief Invalidates memory of given allocation."]
     #[doc = ""]
     #[doc = "Calls `vkInvalidateMappedMemoryRanges()` for memory associated with given range of given allocation."]
+    #[doc = "It needs to be called before reading from a mapped memory for memory types that are not `HOST_COHERENT`."]
+    #[doc = "Map operation doesn't do that automatically."]
     #[doc = ""]
     #[doc = "- `offset` must be relative to the beginning of allocation."]
     #[doc = "- `size` can be `VK_WHOLE_SIZE`. It means all memory from `offset` the the end of given allocation."]
@@ -2457,6 +2598,22 @@ pub struct VmaDefragmentationInfo2 {
     #[doc = "Passing null means that only CPU defragmentation will be performed."]
     pub commandBuffer: VkCommandBuffer,
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VmaDefragmentationPassMoveInfo {
+    pub allocation: VmaAllocation,
+    pub memory: VkDeviceMemory,
+    pub offset: VkDeviceSize,
+}
+#[doc = " \\brief Parameters for incremental defragmentation steps."]
+#[doc = ""]
+#[doc = "To be used with function vmaBeginDefragmentationPass()."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VmaDefragmentationPassInfo {
+    pub moveCount: u32,
+    pub pMoves: *mut VmaDefragmentationPassMoveInfo,
+}
 #[doc = " \\brief Deprecated. Optional configuration parameters to be passed to function vmaDefragment()."]
 #[doc = ""]
 #[doc = "\\deprecated This is a part of the old interface. It is recommended to use structure #VmaDefragmentationInfo2 and function vmaDefragmentationBegin() instead."]
@@ -2527,6 +2684,19 @@ extern "C" {
     #[doc = "Use this function to finish defragmentation started by vmaDefragmentationBegin()."]
     #[doc = "It is safe to pass `context == null`. The function then does nothing."]
     pub fn vmaDefragmentationEnd(
+        allocator: VmaAllocator,
+        context: VmaDefragmentationContext,
+    ) -> VkResult;
+}
+extern "C" {
+    pub fn vmaBeginDefragmentationPass(
+        allocator: VmaAllocator,
+        context: VmaDefragmentationContext,
+        pInfo: *mut VmaDefragmentationPassInfo,
+    ) -> VkResult;
+}
+extern "C" {
+    pub fn vmaEndDefragmentationPass(
         allocator: VmaAllocator,
         context: VmaDefragmentationContext,
     ) -> VkResult;
@@ -2606,8 +2776,8 @@ extern "C" {
     #[doc = ""]
     #[doc = "This function is similar to vmaBindBufferMemory(), but it provides additional parameters."]
     #[doc = ""]
-    #[doc = "If `pNext` is not null, #VmaAllocator object must have been created with #VMA_ALLOCATOR_CREATE_KHR_BIND_MEMORY2_BIT flag."]
-    #[doc = "Otherwise the call fails."]
+    #[doc = "If `pNext` is not null, #VmaAllocator object must have been created with #VMA_ALLOCATOR_CREATE_KHR_BIND_MEMORY2_BIT flag"]
+    #[doc = "or with VmaAllocatorCreateInfo::vulkanApiVersion `== VK_API_VERSION_1_1`. Otherwise the call fails."]
     pub fn vmaBindBufferMemory2(
         allocator: VmaAllocator,
         allocation: VmaAllocation,
@@ -2642,8 +2812,8 @@ extern "C" {
     #[doc = ""]
     #[doc = "This function is similar to vmaBindImageMemory(), but it provides additional parameters."]
     #[doc = ""]
-    #[doc = "If `pNext` is not null, #VmaAllocator object must have been created with #VMA_ALLOCATOR_CREATE_KHR_BIND_MEMORY2_BIT flag."]
-    #[doc = "Otherwise the call fails."]
+    #[doc = "If `pNext` is not null, #VmaAllocator object must have been created with #VMA_ALLOCATOR_CREATE_KHR_BIND_MEMORY2_BIT flag"]
+    #[doc = "or with VmaAllocatorCreateInfo::vulkanApiVersion `== VK_API_VERSION_1_1`. Otherwise the call fails."]
     pub fn vmaBindImageMemory2(
         allocator: VmaAllocator,
         allocation: VmaAllocation,
